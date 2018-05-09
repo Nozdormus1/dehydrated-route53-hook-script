@@ -100,14 +100,6 @@ function invalid_challenge {
 
     # Output error to stderr
     (>&2 echo "Failed to issue SSL cert for ${DOMAIN}: ${RESPONSE}")
-
-    # Mail error to root user
-    mailx -s "Failed to issue SSL cert for ${DOMAIN} on ${HOSTNAME}" root <<-END
-      Failed to issue SSL cert for ${DOMAIN} on ${HOSTNAME}
-
-      Error from verification server:
-      ${RESPONSE}
-END
 }
 
 #
